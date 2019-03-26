@@ -1,0 +1,15 @@
+<h1>ARTICLES INNIT</h1>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <h2><%= link_to article[:title], article_path(article.id) %></h2>
+      <%= article.title %>
+      <%= article.content %>
+    </li>
+    <p><%= link_to "Delete article", article_path(article), method: :delete, data: { confirm: "are you sure?" }%></p>
+  <% end %>
+</ul>
+
+
+<%= link_to "+ Add a new article", new_article_path %>
